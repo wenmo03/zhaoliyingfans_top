@@ -77,3 +77,12 @@ Django 2.0中2.0.2以及1.11.8和1.11.9之前的django.contrib.auth.forms.Authen
 ```
 
 建议升级：django> = 2.0.11
+## 第三方登录
+```
+pip install django-allauth
+```
+
+```python
+# 微博登录
+
+```
