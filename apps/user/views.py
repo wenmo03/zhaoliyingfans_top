@@ -1,5 +1,6 @@
 import time
 
+import requests
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -28,9 +29,11 @@ def weibo_get_code(request):
                    settings.WEIBO_APP_KEY,
                    settings.WEIBO_REDIRECT_URI)
     user_info = sina.get_access_token(code)
+    print(user_info)
     time.sleep(0.1)  # 防止还没请求到token就进行下一步
     # 通过uid查询出是否是新用户，新用户则注册登录
     is_user_exist = FansUser.objects.filter(wb_id=user_info['uid']).first()
+    print('==============', is_user_exist, '====================')
     if is_user_exist is not None:
         # 存在直接登录
         pass
@@ -49,3 +52,13 @@ def weibo_get_code(request):
         'code': 200,
     }
     return HttpResponse(data)
+
+
+def logout(request):
+    url = 'https://api.weibo.com/oauth2/revokeoauth2'
+    the_access_token = '2.00j9j__GSwSE5Bb85f4667040qALuW'
+    querystring = {
+        "access_token": the_access_token
+    }
+    response = requests.request("GET", url, params=querystring)
+    return HttpResponse(response)

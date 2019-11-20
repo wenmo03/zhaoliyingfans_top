@@ -9,7 +9,7 @@ class FansUser(models.Model):
     email = models.CharField(max_length=200, verbose_name='邮箱', null=True, blank=True)
     password = models.CharField(max_length=200, verbose_name='密码', null=True, blank=True)
     wb_id = models.CharField(max_length=64, null=True, blank=True)  # 微博关联的id
-    head = models.CharField(max_length=128, null=True, blank=True)
+    head = models.CharField(max_length=200, null=True, blank=True)
     sex = models.CharField(max_length=16, null=True, blank=True)
     register_time = models.DateTimeField(auto_now_add=True, verbose_name='创建日期')
     register_ip = models.CharField(max_length=32, null=True, blank=True)
