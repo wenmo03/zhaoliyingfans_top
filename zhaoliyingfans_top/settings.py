@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     # 'apps.index.apps.AppConfig',
     'index',
     'user',
@@ -149,3 +150,11 @@ NEVER_REDIS_TIMEOUT = 365*24*60*60
 WEIBO_APP_ID = "1271791014"
 WEIBO_APP_KEY = "0f8e5b877fc72082c56b79810d898e57"
 WEIBO_REDIRECT_URI = "http://127.0.0.1:8000/user/wb/"
+
+# 邮箱设置
+EMAIL_HOST = 'smtp.126.com'  # 邮箱服务器
+EMAIL_PORT = 25  # 端口号
+EMAIL_HOST_USER = 'wenmo03@126.com'  # 邮箱地址
+EMAIL_HOST_PASSWORD = 'qq126mail'  # 邮箱的授权码
+EMAIL_USE_TLS = True  # port  25
+EMAIL_USE_SSL = False  # port 465/994

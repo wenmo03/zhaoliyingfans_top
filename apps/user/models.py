@@ -14,6 +14,10 @@ class FansUser(models.Model):
     register_time = models.DateTimeField(auto_now_add=True, verbose_name='创建日期')
     register_ip = models.CharField(max_length=32, null=True, blank=True)
     last_time = models.DateTimeField(auto_now=True)
+    description = models.TextField(verbose_name='用户简介', null=True, blank=True)
+    phone = models.CharField(max_length=11, null=True, blank=True)
+    is_active = models.BooleanField(default=False, verbose_name='用户是否激活')
+    is_delete = models.BooleanField(default=False, verbose_name='用户是否被禁用')
 
     class Meta:
         db_table = 'fans_user'

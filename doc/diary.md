@@ -84,5 +84,11 @@ pip install django-allauth
 
 ```python
 # 微博登录
-
+# 文档 https://open.weibo.com/wiki/Oauth2/authorize
+# 获取登录接口API
+# 'https://api.weibo.com/oauth2/authorize?client_id='
+# 获取用户token和uid
+# "https://api.weibo.com/oauth2/access_token"
+# 获取退出登录
+# 'https://api.weibo.com/oauth2/revokeoauth2'
 ```
