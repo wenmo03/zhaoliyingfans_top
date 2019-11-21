@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('index/', include('index.urls', namespace='index')),
-    path('user/', include('user.urls'))
+    path('user/', include('user.urls')),
+    path('u/', include('fans_user.urls', namespace='fans_user')),
 ]

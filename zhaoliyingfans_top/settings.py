@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 'apps.index.apps.AppConfig',
     'index',
     'user',
+    'fans_user',
 ]
 
 MIDDLEWARE = [
