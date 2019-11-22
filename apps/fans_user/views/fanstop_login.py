@@ -17,21 +17,28 @@ class FansTopLogin(APIView):
         user = UserOfFans.objects.filter(username=username).first()
         tool = CustomTools()
         token = tool.make_token()
-        cache.set(token, username, 60 * 60)
+        cache.set(token, username, 60 * 60 * 24)
         if check_password(password, user.password):
 
             if not user.is_active:
                 data = {
                     "status": status.HTTP_202_ACCEPTED,
                     'msg': '当前用户还没有激活',
-                    'token': token
+                    "data": {
+                        'username': user.username,
+                        'email': user.email,
+                        'token': token
+                    }
                 }
                 return Response(data)
 
             data = {
                 'status': status.HTTP_200_OK,
                 'msg': '登陆成功',
-                'token': token
+                'token': token,
+                'data': {
+                    "username": username
+                }
             }
             return Response(data)
         else:

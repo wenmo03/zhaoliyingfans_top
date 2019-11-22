@@ -19,12 +19,24 @@
         {
           "status": 200,
           "msg": "登录成功",
+          "token": "TOKEN",
           "data": {
-             "token": "token:12232sd",
-             "last_login": "2019-12-01"
+             "username": "USERNAME" 
           }    
         }
     ```
+    用户未激活登录失败
+    ```
+        {
+            "status": 202,
+            'msg': '当前用户还没有激活',
+            "data": {
+                'username': "USERNAME",
+                'email': "EMAIL",
+                'token': "TOKEN"
+            }
+         }
+   ```
 2. 原生用户注册接口
     ```
     URL: '/u/sign_up/'
@@ -45,6 +57,15 @@
     
     请求成功：    
     ```json
+    {
+    "status": 201,
+    "msg": "success",
+    "token": "4d40f01bfcd047cfad619f41ade20fdf",
+    "data": {
+        "username": "USERNAME",
+        "email": "USER_EMAIL"
+        }
+    }
     ```
     
 3. 用户激活邮件接口
@@ -52,7 +73,37 @@
     URL: '/u/active/'
     ```
     http请求方式：`POST` / `GET`
-    
+    1. `GET`请求
+        
+        |  |必选| 类型| 说明|
+        |-----|---|----|----|
+        |token|ture|string|用户token|
+        
+        返回数据
+        
+        ```json
+           {
+            "status": 200,
+            "msg": "用户激活成功",
+            "data": {
+                    "username": "USERNAME",
+                    "active_status": "active"
+                }
+        }
+        ```
+    2. `POST` 请求
+        
+       |  |必选| 类型| 说明|
+        |-----|---|----|----|
+        |token|ture|string|用户token|
+        |email|true|string|用户邮箱|
+       返回数据
+       ```json
+         {
+                "status": "HTTP_200_OK",
+                "msg": "邮件已发送"
+         }
+        ```
 4. 用户名唯一验证：
     ```
     URL: '/u/usernameOnly/'

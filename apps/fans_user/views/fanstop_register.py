@@ -20,16 +20,23 @@ class FansTopRegister(APIView):
         if fans_user_serializers.is_valid():
             fans_user_serializers.save()
 
-        # 激活注册用户，token有效期一小时
+        # 激活注册用户，token有效期24小时
         tool = CustomTools()
         token = tool.make_token()
         username = request.data.get('username')
-        cache.set(token, username, 60 * 60)
-
+        try:
+            cache.set(token, username, 60 * 60 * 24)
+        except Exception as e:
+            print(e)
         data = {
+            'status': status.HTTP_201_CREATED,
             'msg': 'success',
-            'data': fans_user_serializers.validated_data,
             'token': token,
+            'data': {
+                'username': username,
+                'email': request.data.get('email')
+            }
+
         }
         return Response(data)
 
