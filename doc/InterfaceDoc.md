@@ -21,6 +21,7 @@
           "msg": "登录成功",
           "token": "TOKEN",
           "data": {
+             "flag": "fans",
              "username": "USERNAME" 
           }    
         }
@@ -111,4 +112,16 @@
 5. 第三方登录(微博登录接口)：
     ```
     URL: '/u/weibo_login/'
+    ```
+    ```json
+     {
+    "status": 200,
+    "msg": "微博登录成功",
+    "user": {
+        "flag": "weibo",
+        "uid": "5782250369",
+        "nickname": "墨流引",
+        "token": "2.00j9j__GSwSE5B517e088243n8kREE"
+         }
+    }
     ```
