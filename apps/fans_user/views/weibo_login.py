@@ -29,7 +29,7 @@ class WeiBoGetCode(APIView):
                        settings.WEIBO_APP_KEY,
                        settings.WEIBO_REDIRECT_URI)
         user_info = sina.get_access_token(code)
-
+        # print(user_info)
         access_token = user_info['access_token']
         uid = user_info['uid']
         cache.set(access_token, uid, 60*60*24)
@@ -37,7 +37,7 @@ class WeiBoGetCode(APIView):
         # print(user_info)
         time.sleep(0.1)  # 防止还没请求到token就进行下一步
         # 通过uid查询出是否是新用户，新用户则注册登录
-        is_user_exist = UserOfWeibo.objects.filter(wb_id=user_info['uid']).first()
+        is_user_exist = UserOfWeibo.objects.filter(uid=user_info['uid']).first()
         print('==============', is_user_exist, '====================')
         if is_user_exist is not None:
             # 存在直接登录
@@ -45,6 +45,7 @@ class WeiBoGetCode(APIView):
                 'status': status.HTTP_200_OK,
                 'msg': '微博登录成功',
                 'user': {
+                    'flag': 'weibo',
                     'uid':  is_user_exist.uid,
                     'nickname': is_user_exist.nickname,
                     'token': access_token,
@@ -64,6 +65,7 @@ class WeiBoGetCode(APIView):
             }
             users_table_obj = UserOfWeibo.objects.create(**users_dict).id
             data = {
+                'flag': 'weibo',
                 'status': status.HTTP_200_OK,
                 'msg': '微博登录成功',
                 'user': {

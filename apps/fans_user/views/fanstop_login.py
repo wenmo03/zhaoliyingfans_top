@@ -37,6 +37,7 @@ class FansTopLogin(APIView):
                 'msg': '登陆成功',
                 'token': token,
                 'data': {
+                    'flag': 'fans',
                     "username": username
                 }
             }

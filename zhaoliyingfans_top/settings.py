@@ -150,7 +150,7 @@ NEVER_REDIS_TIMEOUT = 365*24*60*60
 '''微博登录常量'''
 WEIBO_APP_ID = "1271791014"
 WEIBO_APP_KEY = "0f8e5b877fc72082c56b79810d898e57"
-WEIBO_REDIRECT_URI = "http://127.0.0.1:8000/user/wb/"
+WEIBO_REDIRECT_URI = "http://127.0.0.1:8000/u/weibo_get_code/"
 
 # 邮箱设置
 EMAIL_HOST = 'smtp.126.com'  # 邮箱服务器
