@@ -9,7 +9,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from fans_user.models import UserOfWeibo
-from user.models import FansUser
 from zhaoliyingfans_top import settings
 
 
