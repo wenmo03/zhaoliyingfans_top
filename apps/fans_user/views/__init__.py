@@ -1,3 +1,4 @@
-from .fanstop_register import FansTopRegister, ActiveCode, UsernameOnly
+from .fanstop_register import FansTopRegister
 from .fanstop_login import FansTopLogin
 from .weibo_login import WeiBoLogin
+from .fansuser_active import ActiveCode, UsernameOnly

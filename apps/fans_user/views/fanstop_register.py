@@ -95,16 +95,3 @@ class FansTopRegister(APIView):
             # 用户不存在
             return False
 
-
-
-class ActiveCode(APIView):
-    def get(self):
-        pass
-
-    def post(self):
-        pass
-
-
-class UsernameOnly(APIView):
-    def get(self, request):
-        pass
