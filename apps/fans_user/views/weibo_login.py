@@ -85,6 +85,7 @@ class WeiboLogout(APIView):
         response = requests.request("GET", url, params=querystring)
         return HttpResponse(response)
 
+
 class OAuthWB:
     def __init__(self, client_id, client_key, redirect_uri):
         self.client_id = client_id
