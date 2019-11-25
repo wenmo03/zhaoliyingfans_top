@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'apps.index.apps.AppConfig',
     'index',
-    'user',
+
     'fans_user',
 ]
 
