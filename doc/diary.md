@@ -92,3 +92,46 @@ pip install django-allauth
 # 获取退出登录
 # 'https://api.weibo.com/oauth2/revokeoauth2'
 ```
+
+解决跨域问题。在后端Django项目demo2中安装相关模块：
+
+pip install Django-cors-headers
+
+
+然后在settings.py中的注册里配置如下：
+
+```
+INSTALLED_APPS = [
+    'Django.contrib.admin',
+    'Django.contrib.auth',
+    'Django.contrib.contentTypes',
+    'Django.contrib.sessions',
+    'Django.contrib.messages',
+    'Django.contrib.staticfiles',
+    'app01.apps.App01Config',
+    'rest_framework',
+    'corsheaders'
+]
+```
+
+在settings.py中的MIDDLEWARE里设置如下：
+
+```
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',                            #放到中间件顶部
+    'Django.middleware.security.SecurityMiddleware',
+    'Django.contrib.sessions.middleware.SessionMiddleware',
+    'Django.middleware.common.CommonMiddleware',
+    'Django.middleware.csrf.CsrfViewMiddleware',
+    'Django.contrib.auth.middleware.AuthenticationMiddleware',
+    'Django.contrib.messages.middleware.MessageMiddleware',
+    'Django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+```
+
+在settings.py中新增配置项，即可解决本项目中的跨域问题。
+```
+CORS_ORIGIN_ALLOW_ALL = True
+```
+注意：在Python全栈开发的知识体系里，跨域问题和深浅拷贝，几乎是逢面试必考的两个笔试题。不同的是，深浅拷贝在实际项目中很少用到，而跨域问题却几乎在每个项目中都有涉及，只是并非都能被察觉罢了。跨域问题是非常重要的一个知识点，关系到网络安全，甚至说跨域问题是Web安全中最重要的一环也不为过。
+

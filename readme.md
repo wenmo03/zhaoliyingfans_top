@@ -15,3 +15,8 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
+
+
+接口文档: [Interface Doc](doc/InterfaceDoc.md)
+
+其他文档见 [doc Folder](doc)
