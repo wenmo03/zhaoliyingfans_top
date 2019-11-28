@@ -13,6 +13,8 @@ pip install -r requirements.txt
 ```
 3.运行测试项目
 ```
+python manage.py
+# 运行之前迁移同步数据库
 python manage.py runserver
 ```
 

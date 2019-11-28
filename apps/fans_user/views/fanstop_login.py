@@ -1,8 +1,8 @@
 from django.contrib.auth.hashers import check_password
 from django.core.cache import cache
-from django.shortcuts import render
+
 from fans_user.custom_tools import CustomTools
-# Create your views here.
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView

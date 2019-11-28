@@ -32,3 +32,5 @@ class UserOfWeibo(models.Model):
 
     class Meta:
         db_table = 'user_of_weibo'
+
+
