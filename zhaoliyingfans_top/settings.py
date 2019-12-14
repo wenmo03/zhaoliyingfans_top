@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'index',
 
     'fans_user',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,10 @@ EMAIL_HOST_USER = 'wenmo03@126.com'  # 邮箱地址
 EMAIL_HOST_PASSWORD = 'qq126mail'  # 邮箱的授权码
 EMAIL_USE_TLS = True  # port  25
 EMAIL_USE_SSL = False  # port 465/994
+
+
+# 分页配置
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
+    'PAGE_SIZE': 3
+}

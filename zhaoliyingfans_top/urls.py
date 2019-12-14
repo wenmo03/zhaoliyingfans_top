@@ -25,4 +25,5 @@ urlpatterns = [
     path('index/', include('index.urls', namespace='index')),
 
     path('u/', include('fans_user.urls', namespace='fans_user')),
+    path('blog/', include('blog.urls', namespace='blog')),
 ]
