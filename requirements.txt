@@ -1,4 +1,4 @@
-Django==2.0.12
+Django==2.2.13
 django-redis==4.10.0
 djangorestframework==3.10.3
 PyMySQL==0.9.3
